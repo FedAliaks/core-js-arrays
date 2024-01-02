@@ -395,8 +395,13 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+function getElementByIndices(arr, indices) {
+  let answer = arr;
+  indices.map((item) => {
+    answer = answer[item];
+    return 1;
+  });
+  return answer;
 }
 
 /**
@@ -452,8 +457,16 @@ function getIdentityMatrix(n) {
  *    getIndicesOfOddNumbers([2, 4, 6, 8, 10]) => []
  *    getIndicesOfOddNumbers([11, 22, 33, 44, 55]) => [0, 2, 4]
  */
-function getIndicesOfOddNumbers(/* numbers */) {
-  throw new Error('Not implemented');
+function getIndicesOfOddNumbers(numbers) {
+  const answer = [];
+  numbers.map((item, index) => {
+    if (item % 2 !== 0) {
+      answer.push(index);
+    }
+    return 1;
+  });
+
+  return answer;
 }
 
 /**
