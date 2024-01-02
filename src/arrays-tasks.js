@@ -42,8 +42,14 @@ function getIntervalArray(start, end) {
  *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
  *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function sumArrays(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function sumArrays(arr1, arr2) {
+  const lengthMax = Math.max(arr1.length, arr2.length);
+
+  if (arr1.length === lengthMax) {
+    return arr1.map((item, index) => item + (arr2[index] ? arr2[index] : 0));
+  }
+
+  return arr2.map((item, index) => item + (arr1[index] ? arr1[index] : 0));
 }
 
 /**
@@ -125,8 +131,12 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
+function getAverage(arr) {
+  if (arr.length === 0) return 0;
+  const answer = arr.reduce((accum, item) => accum + item) / arr.length;
+  if (answer % 1 === 0) return answer;
+
+  return +answer.toFixed(2);
 }
 
 /**
